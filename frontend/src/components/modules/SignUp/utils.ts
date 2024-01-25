@@ -14,4 +14,5 @@ export type FormFields = z.infer<typeof schema>;
 export const defaultValues = {
   email: "",
   password: "",
+  confirmPassword: "",
 };
