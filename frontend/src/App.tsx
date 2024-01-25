@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Message } from "./components/common/Message";
+import { SignIn } from "./components/modules/SignIn";
+import { SignUp } from "./components/modules/SignUp";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isSignIn, setIsSignIn] = useState(true);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="flex justify-center items-center h-screen bg-gray-900">
+        <div className="flex justify-between bg-white h-screen flex-col-reverse lg:grid lg:grid-cols-2 lg:h-fit lg:w-fit lg:max-w-screen-lg lg:rounded-3xl lg:shadow-lg lg:min-h-96">
+          {isSignIn ? (
+            <>
+              <Message
+                title="Welcome to XYZ"
+                description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est officiis totam quasi magni illo! Corporis magnam quis optio eaque molestiae dolorem culpa quod. Tempora a animi, maxime earum ducimus est?"
+                button={{
+                  children: "Sign up",
+                  onClick: () => setIsSignIn(false)
+                }}
+              />
+              <SignIn />
+            </>
+          ) : (
+            <>
+              <Message
+                title="Welcome to XYZ"
+                description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est officiis totam quasi magni illo! Corporis magnam quis optio eaque molestiae dolorem culpa quod. Tempora a animi, maxime earum ducimus est?"
+                button={{
+                  children: "Sign in",
+                  onClick: () => setIsSignIn(true)
+                }}
+              />
+              <SignUp />
+            </>
+          )}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
