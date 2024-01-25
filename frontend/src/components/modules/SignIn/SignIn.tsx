@@ -12,7 +12,7 @@ export const SignIn = () => {
           <div className="flex flex-col gap-4">
             <FormTextField label="Email" placeholder="Enter your email" name="email" />
             <FormTextField label="Password" placeholder="Enter your password" type="password" name="password" />
-            <button className="btn">
+            <button className="btn bg-cyan-700 text-white">
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}

@@ -18,7 +18,7 @@ export const SignUp = () => {
               type="password" 
               name="confirmPassword"
             />
-            <button className="btn">
+            <button className="btn bg-cyan-700 text-white">
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
